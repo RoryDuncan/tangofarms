@@ -1,0 +1,118 @@
+
+@import 'variables.less';
+
+.nav {
+  text-transform: lowercase;
+  font-family: "Lora", Arial, sans-serif;
+  font-weight: lightest;
+  width: 100%;
+  background-color: @navbar-background-color;
+  font-size: @navbar-fontsize;
+  line-height: @navbar-fontsize;
+  padding: 0 0;
+  height: @navbar-height;
+
+  ul.navmenu {
+    margin: 0 auto;
+    display: block;
+    list-style-type: none;
+    padding: 0 0;
+    height: @navbar-height;
+    margin-left: -@navlink-padding-x;
+    li:first-child {margin-left: 0;}
+    li {
+      float: left;
+      margin: 0 (50% / (@navbar-items * 2));
+    }
+
+  }
+
+  a:link,
+  a:visited {
+    display: inline-block;
+    text-decoration: none;
+    color: @navbar-text-color;
+    padding: @navlink-padding-y @navlink-padding-x;
+  }
+  a:hover {
+    background-color: @navbar-background-color--hover;
+    color: @navbar-text-color--hover;
+  }
+
+  li:first-child a {
+    //margin-left: -9px;
+  }
+
+  .navmenu-dropdown {
+    // remove from normal flow
+    display: none;
+    position: relative;
+
+    margin: 0 auto;
+    padding: 0 0;
+
+    li {
+      background-color: @navbar-background-color - #020202;
+      width: 100%;
+
+    }
+    a {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .mobile-only {
+    @margin-size: 4px;
+    @button-size: @navbar-height;
+
+    a.menu-toggle {
+      display: block;
+      width: @button-size;
+      height: @button-size;
+      padding-top: (@button-size / 4);
+    }
+    a:hover, a:focus {
+      outline: 0;
+      background-color: @navbar-background-color--hover;
+    }
+    span.bar {
+      border: 1px solid @navbar-text-color;
+      border-radius: 5px;
+      width: @navbar-height*0.6;
+      height: 0px;
+      display: block;
+      margin-bottom: (@button-size - (2 * @margin-size) ) / 4;
+    }
+  }
+}
+
+/* * * * * * * * * * * * * * * * * *
+         MEDIA QUERIES
+
+ * * * * * * * * * * * * * * * * * */
+
+.mobile-only {
+  display: none;
+}
+.desktop-only {
+  display: block;
+}
+
+
+@media (max-width: @breakpoint-tablet) {
+
+  .wrapper {
+    width: 95%;
+  }
+  .mobile-only {
+    display: block ;
+  }
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+
+.togglable { display: none;}
+.active > .togglable {display: block;}

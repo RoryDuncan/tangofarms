@@ -1,0 +1,21 @@
+
+header
+  .logo
+    img(alt="Tango Farms")
+
+
+.nav
+  .wrapper
+    .mobile-only#mobilemenu
+      a.menu-toggle(href="#")
+        span.bar
+        span.bar
+        span.bar
+
+    - var mobileClasses = ['navmenu-dropdown', 'mobile-only', 'toggleable']
+    - var desktopClasses = ['navmenu', 'desktop-only']
+    ul(class=mobileClasses)
+      include navigationlinks.jade
+
+    ul(class=desktopClasses)
+      include ./navigationlinks.jade
