@@ -1,13 +1,19 @@
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Neucha);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Neucha|Raleway);
 
-@import 'golden-grid-system.less';
+// semantic grid system
+@import 'variables.less';
+@import 'semantic.gs.less';
 @import 'navbar.less';
 
 body {
-  padding: 50px;
   font: 16px "Open Sans Condensed", Helvetica, Arial, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  padding: 0 0;
+  margin: 0 0;
 }
+div { padding: 0 0; margin: 0 0;}
 
 h1,
 h2,
@@ -15,15 +21,38 @@ h3,
 h4,
 h5 {
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica";
-  font-weight: 800;
+  font-weight: 600;
 }
+
+@breakpoints: '1440px', '1026px', '912px', '768px', '540px' ;
+
 
 
 a {
   color: #00B7FF;
 }
 
-.hero {
-  h1 {font-family: "Neucha", 'Helvetica Neue', Helvetica;}
-  background-color: #eee;
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
 }
+
+.hero {
+    @size: 5;
+    background-image: url(@hero-image);
+    background-size: cover;
+    min-height: @hero-size;
+    background-color: #fff;
+    h1 {
+      //font-family: "Neucha", 'Helvetica Neue', Helvetica;
+
+      margin: 0 auto;
+      font-size: @size * 1em;
+      color: @hero-color;
+      font-weight: 800;
+      padding-top: (@hero-size - (@base-font-size * @size)) / 2.5;
+    }
+
+}
+
+

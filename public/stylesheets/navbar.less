@@ -2,15 +2,17 @@
 @import 'variables.less';
 
 .nav {
+  position: absolute;
   text-transform: lowercase;
-  font-family: "Lora", Arial, sans-serif;
-  font-weight: lightest;
+  font-family: "Raleway", Arial, sans-serif;
+  font-weight: 200;
   width: 100%;
   background-color: @navbar-background-color;
   font-size: @navbar-fontsize;
   line-height: @navbar-fontsize;
   padding: 0 0;
   height: @navbar-height;
+  //box-shadow: 0px 2px 8px #000;
 
   ul.navmenu {
     margin: 0 auto;
@@ -22,7 +24,9 @@
     li:first-child {margin-left: 0;}
     li {
       float: left;
-      margin: 0 (50% / (@navbar-items * 2));
+      margin: 0 (10% / (@navbar-items * 2));
+      width: 50% / @navbar-items;
+
     }
 
   }
@@ -37,6 +41,7 @@
   a:hover {
     background-color: @navbar-background-color--hover;
     color: @navbar-text-color--hover;
+    font-weight: 200;
   }
 
   li:first-child a {
@@ -106,7 +111,7 @@
     width: 95%;
   }
   .mobile-only {
-    display: block ;
+    display: block;
   }
   .desktop-only {
     display: none !important;
