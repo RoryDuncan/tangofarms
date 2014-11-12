@@ -5,6 +5,7 @@
 @import 'variables.less';
 @import 'semantic.gs.less';
 @import 'navbar.less';
+@import "animations.less";
 
 body {
   font: 16px "Open Sans Condensed", Helvetica, Arial, sans-serif;
@@ -39,20 +40,61 @@ a {
 
 .hero {
     @size: 5;
-    background-image: url(@hero-image);
     background-size: cover;
     min-height: @hero-size;
     background-color: #fff;
+    color: @hero-color;
+
     h1 {
       //font-family: "Neucha", 'Helvetica Neue', Helvetica;
 
       margin: 0 auto;
       font-size: @size * 1em;
-      color: @hero-color;
       font-weight: 800;
       padding-top: (@hero-size - (@base-font-size * @size)) / 2.5;
     }
 
+    h3, h2 {
+        font-family: "Neucha", 'Helvetica Neue', Helvetica;
+        font-size: (@size / 3 ) * 1em;
+        span { color: #b96;}
+    }
+    ul.products {
+      list-style-type: none;
+      li {
+        font-family: "Neucha", 'Helvetica Neue', Helvetica;
+        font-size: (@size / 3 ) * 1em;
+        &:before {
+          content:"♥";
+          color: #aa5;
+          padding-right: 10px;
+        }
+        &:hover {
+          &:before {color: #aa5;}
+        }
+      }
+    }
 }
 
 
+.tools {
+  .hero;
+  background-image: url(@hero-image);
+}
+
+
+ul.products {
+      list-style-type: none;
+      li {
+        font-family: "Neucha", 'Helvetica Neue', Helvetica;
+        font-size: 2em;
+        &:before {
+          content:"♥";
+          color: #b96;
+          padding-right: 10px;
+        }
+        &:hover {
+          &:before {color: #aa5;}
+        }
+      }
+    }
