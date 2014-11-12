@@ -5,7 +5,8 @@
 @import 'variables.less';
 @import 'semantic.gs.less';
 @import 'navbar.less';
-@import "animations.less";
+@import 'animations.less';
+@import 'helpers.less';
 
 body {
   font: 16px "Open Sans Condensed", Helvetica, Arial, sans-serif;
@@ -27,10 +28,19 @@ h5 {
 
 @breakpoints: '1440px', '1026px', '912px', '768px', '540px' ;
 
-
-
 a {
-  color: #00B7FF;
+  color: #00aa77;
+}
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+          CONTAINERS
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+.content {
+  min-height: 600px;
 }
 
 .wrapper {
@@ -38,11 +48,27 @@ a {
   margin: 0 auto;
 }
 
+
+
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+          HERO
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+
+
+
+
 .hero {
     @size: 5;
     background-size: cover;
     min-height: @hero-size;
     background-color: #fff;
+    background-attachment: fixed;
     color: @hero-color;
 
     h1 {
@@ -59,42 +85,62 @@ a {
         font-size: (@size / 3 ) * 1em;
         span { color: #b96;}
     }
-    ul.products {
-      list-style-type: none;
-      li {
-        font-family: "Neucha", 'Helvetica Neue', Helvetica;
-        font-size: (@size / 3 ) * 1em;
-        &:before {
-          content:"♥";
-          color: #aa5;
-          padding-right: 10px;
-        }
-        &:hover {
-          &:before {color: #aa5;}
-        }
-      }
-    }
 }
 
+.half-sized() {min-height: 250px;}
 
-.tools {
+.home-hero {
   .hero;
-  background-image: url(@hero-image);
+  background-image: url(@index-hero-image);
 }
+
+.products-hero {
+  .hero;
+  .half-sized();
+  background-image: url(@products-hero-image);
+}
+
+.training-hero {
+  .hero;
+  .half-sized();
+  background-image: url(@training-hero-image);
+}
+
+.contact-hero {
+  .hero;
+  .half-sized();
+  background-image: url(@contact-hero-image);
+}
+
+footer {
+  border-top: 1px solid #eee;
+  padding: 25px 0px;
+  background-color: #f5f5f5;
+}
+
+
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+          PRODUCTS
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 
 
 ul.products {
-      list-style-type: none;
-      li {
-        font-family: "Neucha", 'Helvetica Neue', Helvetica;
-        font-size: 2em;
-        &:before {
-          content:"♥";
-          color: #b96;
-          padding-right: 10px;
-        }
-        &:hover {
-          &:before {color: #aa5;}
-        }
-      }
+  list-style-type: none;
+  li {
+    font-family: "Neucha", 'Helvetica Neue', Helvetica;
+    font-size: 2em;
+    &:before {
+      content:"♥";
+      color: #b96;
+      padding-right: 10px;
     }
+    &:hover {
+      &:before {color: #aa5;}
+    }
+  }
+}
