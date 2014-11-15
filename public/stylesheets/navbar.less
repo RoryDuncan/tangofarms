@@ -13,6 +13,17 @@
   padding: 0 0;
   height: @navbar-height;
   //box-shadow: 0px 2px 8px #000;
+  // -webkit-transition: background 0.2s linear;
+  // -moz-transition: background 0.2s linear;
+  // transition: background 0.2s linear;
+
+  &:hover {
+    // background-color: #064;
+    // a {color: #333; }
+    // -webkit-transition: background 0.2s linear;
+    // -moz-transition: background 0.2s linear;
+    // transition: background 0.2s linear;
+  }
 
   ul.navmenu {
     margin: 0 auto;
@@ -24,7 +35,7 @@
     li:first-child {margin-left: 0;}
     li {
       float: left;
-      margin: 0 (10% / (@navbar-items * 2));
+      margin: 0 (0% / (@navbar-items * 2));
       width: 50% / @navbar-items;
 
     }
@@ -39,6 +50,7 @@
     padding: @navlink-padding-y @navlink-padding-x;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.85);
   }
+
   a:hover {
     background-color: @navbar-background-color--hover;
     color: @navbar-text-color--hover;
@@ -69,7 +81,7 @@
   }
 
   .mobile-only {
-    @margin-size: 4px;
+    @margin-size: 1px;
     @button-size: @navbar-height;
 
     a.menu-toggle {

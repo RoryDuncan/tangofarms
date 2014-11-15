@@ -3,9 +3,9 @@
 /////////////////
 
 // Defaults which you can freely override
-@column-width: 60;
+@column-width: 80;
 @gutter-width: 20;
-@columns: 12;
+@columns: 18;
 
 // Utility variable — you should never need to modify this
 @gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
@@ -20,7 +20,7 @@
 // The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
 .clearfix() {
 	*zoom:1;
-	
+
 	&:before,
 	&:after {
 	    content:"";
@@ -62,4 +62,13 @@ body {
 }
 .pull(@offset:1) {
 	margin-right: @total-width*(((@gutter-width+@column-width)*@offset) / @gridsystem-width) + @total-width*((@gutter-width*.5)/@gridsystem-width);
+}
+
+
+section {
+	.row();
+}
+
+aside {
+	.column(6);
 }

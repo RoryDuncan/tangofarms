@@ -4,7 +4,7 @@ block abovethefold
   .products-hero
     .wrapper
       .group
-        h1 Made with our on hands... and #[span.red ♥]
+        h1 Made with #[span.red ♥]
         h3 &nbsp;
 
 block content
@@ -15,4 +15,22 @@ block content
 
     p Before they sold out photo booth gastropub, meggings plaid Blue Bottle aesthetic scenester butcher Odd Future meditation try-hard squid. Deep v Neutra pour-over sartorial food truck pickled, trust fund literally cornhole cardigan post-ironic ennui mlkshk cray meditation. 8-bit viral gastropub kale chips 90's normcore McSweeney's. Farm-to-table stumptown Shoreditch, leggings biodiesel kogi forage bespoke DIY gentrify. Trust fund Pitchfork 8-bit, freegan pork belly cornhole VHS butcher selfies Wes Anderson slow-carb pour-over pug cold-pressed letterpress. Retro actually crucifix iPhone American Apparel. Raw denim pork belly irony, health goth keytar vinyl artisan literally selfies mustache roof party wayfarers.
 
-    p 3 wolf moon taxidermy selfies food truck irony retro. Neutra tousled Austin umami distillery hella. Intelligentsia typewriter vinyl hoodie, street art bitters small batch bespoke mixtape disrupt ennui. Gluten-free swag yr, fashion axe cornhole disrupt plaid jean shorts tilde viral post-ironic. Shoreditch letterpress Williamsburg Helvetica PBR. Kitsch chillwave PBR&B fashion axe. Shabby chic cliche small batch, Cosby sweater street art heirloom put a bird on it.
+    .products
+      ul.products-list
+        +product("Lamb", "", "lorum ipsum")
+        +product("Turkey", "", "lorum ipsum")
+        +product("Artisan", "", "lorum ipsum")
+        +product("Test", "", "lorum ipsum")
+        +product("Etc..", "", "lorum ipsum")
+
+    .clear
+
+mixin product(product_name, product_image, product_text)
+  li
+    a(href="#" class="product-card")
+      img(src='http://placehold.it/350x150')
+
+      .product-card-text
+        h3= product_name
+        p= product_text
+
