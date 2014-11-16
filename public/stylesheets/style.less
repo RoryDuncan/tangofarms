@@ -1,5 +1,5 @@
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Neucha|Raleway);
+
 
 // semantic grid system
 @import 'variables.less';
@@ -8,22 +8,35 @@
 @import 'animations.less';
 @import 'helpers.less';
 
+
+
+* {
+  box-sizing: border-box;
+}
 body {
-  font: 16px "Open Sans Condensed", Helvetica, Arial, sans-serif;
+  .primary-font();
   background-color: #fafafa;
   color: #333;
   padding: 0 0;
   margin: 0 0;
 }
+
+p {
+  font-weight: 200;
+}
+
 div { padding: 0 0; margin: 0 0;}
 
 h1,
-h2,
+h2 {
+  .primary-font(); //font-family: "Open Sans Condensed", "Open Sans", "Helvetica";
+  font-weight: 800;
+}
+
 h3,
 h4,
 h5 {
-  font-family: "Open Sans Condensed", "Open Sans", "Helvetica";
-  font-weight: 600;
+  .secondary-font();
 }
 
 @breakpoints: '1440px', '1200px', '1026px', '912px', '768px', '540px' ;
@@ -36,10 +49,35 @@ a {
 
 
 
+
+
+
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
           CONTAINERS
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+
+
+
+
+
+
+
+.half {
+  .column(5);
+
+  &:after {
+    clear: both;
+  }
+}
+
+.clear {
+  display: table;
+  &:before, &:after {
+    clear: both;
+  }
+}
 
 .content {
   min-height: 600px;
@@ -58,14 +96,15 @@ a {
   display: table;
   padding: 0 0;
   margin: 0 0;
-  & > * {.column(6);}
+  & > * {
+    .column(6);
+    margin-left: 1px*@gutter-width;
+    margin-top: 10px;
+  }
   &:after {clear: both;}
   *:first-child {
     margin-left: 0px;
     //margin-right: 2px*@gutter-width;
-  }
-  *:first-child + * {
-    margin-left: 1px*@gutter-width;
   }
 }
 
@@ -77,9 +116,16 @@ footer {
 
 
 
+
+
+
+
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
           HERO
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
 
 
 
@@ -107,7 +153,7 @@ footer {
         font-family: "Neucha", 'Helvetica Neue', Helvetica;
         font-size: (@size / 3 ) * 1em;
         span {
-          color: #fa5;//#b96;
+          color: #fa5;
         }
     }
 }
@@ -129,7 +175,7 @@ footer {
   .hero;
   .half-sized();
   background-image: url(@training-hero-image);
-  background-position: 0px -100px;
+  background-position: 0px -760px;
   //background: #354;
 }
 
@@ -142,9 +188,21 @@ footer {
 
 
 
+
+
+
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
           PRODUCTS
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+
+
+
+
+
+
 @cardsize: 350px;
 
 
@@ -211,17 +269,51 @@ footer {
 
 
 
-.half {
-  .column(5);
 
-  &:after {
-    clear: both;
-  }
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+              CONTACT
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+.contact-form {
+  border: 2px solid #000;
+  width: 300px;
+  background-color: #333;
+  margin: 15px auto;
+  padding: 10px 10px;
+  outline: 2px solid rgba(255,255,255,0.25);
 }
 
-.clear {
-  display: table;
-  &:before, &:after {
-    clear: both;
+
+
+.input-group {
+
+  padding: 10px 12px;
+  label {
+    .secondary-font();
+    font-weight: 400;
+    font-size: 13px;
+    color: #789;
+    line-height: 26px;
   }
+  input, textarea {
+    background-color: #4a4a4a;
+    .secondary-font();
+    display: block;
+    font-size: 16px;
+    width: 100%;
+    font-weight: 300;
+    padding: 10px 6px;
+    color: #fff;
+    border: none;
+    border-bottom: 4px solid #222;
+    &:focus {
+      border-bottom: 4px solid #000;
+      background-color: #505050;
+      outline: none;
+    }
+
+  }
+
 }
